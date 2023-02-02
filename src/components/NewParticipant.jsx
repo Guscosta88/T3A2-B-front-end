@@ -1,9 +1,10 @@
 import React from 'react'
 import BeverageSelector from './BeverageSelector'
+import { Link } from 'react-router-dom'
 
 const NewParticipant = () => {
   return (
-    <div class="card">
+    <div class="card_participant">
         <h5>Add Participant</h5>
         <form action="">
         <label class="sr-only" for="inlineFormInput">Enter Name</label>
@@ -31,7 +32,9 @@ const NewParticipant = () => {
             </input>
         <label class="form-check-label" for="no">No</label>
             </div>
+            <Link to="/participants">
         <button className="btn btn-secondary mt-2">Submit</button>
+        </Link>
         </form>
     </div>
   )

@@ -34,8 +34,56 @@
 
 .card {
   padding: 2em;
+  box-shadow: 5px 5px 10px grey;
+  height: 900px;
+  background-color: white;
+}
+
+.participant{
+  width: 400px;
+  height: 50px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  border-radius: 10px;
+  margin: 20px 0;
+  padding-top: 7px;
+  box-shadow: 5px 5px 10px black;
+}
+
+.card_participant{
+  margin-bottom: 500px;
+  padding: 2em;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.participant_buttons button{
+  margin: 10px;
+  background-color: #545B62;
+  box-shadow: 5px 5px 10px grey;
+}
+
+.border-right{
+  border-right: solid;
+  border-color: lightgray;
+  border-width: 1px;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.list_buttons{
+  display: flex;
+}
+
+#edit{
+  background-color: #739AC1;
+}
+
+#delete{
+  background-color: #CD7272;
+  width: 42px;
 }
