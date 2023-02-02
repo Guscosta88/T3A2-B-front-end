@@ -9,7 +9,16 @@ import '../App.css'
 function App() {
 
   return (
-
+      <>
+      <BrowserRouter>
+          <Routes>
+              <Route path='/' element={ <NewParticipant /> } />
+              <Route path='/participants' element={ <ParticipantsList/> } />
+              <Route path='/participant/edit' element={ <EditParticipant /> } />
+              <Route path='/shopping' element={ <ShoppingList /> } />
+          </Routes>
+      </BrowserRouter>
+      </>
   )
 }
 
