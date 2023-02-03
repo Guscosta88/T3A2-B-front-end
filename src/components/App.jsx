@@ -1,4 +1,3 @@
-import React from 'react'
 import NewParticipant from './NewParticipant'
 import EditParticipant from './EditParticipant'
 import ParticipantsList from './ParticipantsList'
