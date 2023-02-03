@@ -6,7 +6,9 @@ import ShoppingList from './ShoppingList'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import '../App.css'
 
-function App() {
+// function App() {
+
+const App = () => {
 
   return (
       <>
