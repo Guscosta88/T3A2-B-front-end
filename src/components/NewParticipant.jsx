@@ -1,41 +1,103 @@
-import React from 'react'
+import { useState } from 'react'
 import BeverageSelector from './BeverageSelector'
-import { Link } from 'react-router-dom'
+import Loading from './Loading'
+import { useNavigate } from 'react-router-dom'
 
 const NewParticipant = () => {
+    const [name, setName ] = useState("")
+    const [beverage, setBeverage ] = useState("Beer")
+    const [isMeatEater, setIsMeatEater ] = useState("")
+    const [loading, setLoading ] = useState("")
+    const navigate = useNavigate()
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        setLoading(true)
+        let beverageId;
+
+        try{
+            const response = await fetch(
+                `https://t3a2-b-back-end-production.up.railway.app/beverages?name=${beverage}`
+            );
+            const data = await response.json();
+            beverageId = data._id;
+        } catch (error) {
+            console.log("Error retrieving beverage ID:", error);
+        }
+
+        const participant = {name, drink_id: beverageId, meat_eater: isMeatEater };
+
+        fetch("https://t3a2-b-back-end-production.up.railway.app/participants", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(participant),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            console.log("Success:", data);
+            setLoading(false)
+            navigate("/participants");
+        })
+        .catch((error) => {
+            console.log("Error:", error);
+        });
+    };
+
+
+
   return (
     <div class="card_participant">
         <h5>Add Participant</h5>
-        <form action="">
-        <label class="sr-only" for="inlineFormInput">Enter Name</label>
-            <div class="col-sm-10">
-            <input type="text" class="form-control" id="inlineFormInput" placeholder="Name"></input>
+        {loading ? <Loading /> :
+        <form onSubmit={handleSubmit}>
+        <label className="sr-only" htmlFor="name">Enter Name</label>
+            <div className="col-sm-10">
+            <input 
+                type="text" 
+                className="form-control" 
+                id="name" 
+                placeholder="Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                />
       </div>
-        <BeverageSelector />
-        <label class="sr-only" for="inlineFormInput">Meat eater?</label>
-            <div class="col-sm-10">
-            <input 
-                class="form-check-input" 
-                type="radio" 
-                name="is_meat_eater" 
-                id="yes" 
-                value="yes">
-            </input>
 
-        <label class="form-check-label" for="yes">Yes</label>
+        <BeverageSelector 
+            beverage={beverage}
+            setBeverage={setBeverage}
+        />
+
+        <label className="sr-only" htmlFor="isMeatEater">Meat eater?</label>
+            <div className="col-sm-10">
             <input 
-                class="form-check-input" 
+                className="form-check-input" 
                 type="radio" 
-                name="is_meat_eater" 
-                id="no" 
-                value="no">
-            </input>
-        <label class="form-check-label" for="no">No</label>
+                name="isMeatEater" 
+                id="Yes" 
+                value="Yes"
+                checked={isMeatEater === "Yes"}
+                onChange={(e) => setIsMeatEater(e.target.value)}
+                />
+        <label className="form-check-label" htmlFor="Yes">Yes</label>
+
+            <input 
+                className="form-check-input" 
+                type="radio" 
+                name="isMeatEater" 
+                id="No" 
+                value="No"
+                checked={isMeatEater === "No"}
+                onChange={(e) => setIsMeatEater(e.target.value)}
+            />
+        <label className="form-check-label" htmlFor="No">No</label>
+
             </div>
-            <Link to="/participants">
-        <button className="btn btn-secondary mt-2">Submit</button>
-        </Link>
+        <button type="submit" className="btn btn-secondary mt-2" onClick={handleSubmit}>Submit</button>
         </form>
+}
     </div>
   )
 }
