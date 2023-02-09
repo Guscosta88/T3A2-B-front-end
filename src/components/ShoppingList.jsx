@@ -54,7 +54,7 @@ const ShoppingList = () => {
                     }
                   }
       
-                  return (
+                  return participant_food_multiply !== 0 ? (
                     <div className="container">
                       <div className="row" key={food.id}>
                         <div className="col-8 border-right border-bottom">{food.name}</div>
@@ -62,7 +62,7 @@ const ShoppingList = () => {
                         <div className="col-2 border-right border-bottom">{food.unit}</div>
                       </div>
                     </div>
-                  );
+                  ) : null;
                 })}
               </div>
               <h5 id="shopping_h5">Beverage List</h5>
@@ -75,14 +75,14 @@ const ShoppingList = () => {
                     participant_beverage_multiply = participant.length * beverage.quantity;
                   }
       
-                  return (
+                  return participant_beverage_multiply !== 0 ? (
                     <div className="container">
                       <div className="row" key={beverage.id}>
                         <div className="col-9 border-right border-bottom">{beverage.name}</div>
                         <div className="col-3 border-right border-bottom">{participant_beverage_multiply} bt</div>
                       </div>
                     </div>
-                  );
+                  ) : null;
                 })}
               </div>
             </>

@@ -53,7 +53,6 @@
 
 .grocery{
   width: 350px;
-  height: 182px;
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
@@ -65,7 +64,6 @@
 
 .beverages{
   width: 350px;
-  height: 107px;
   border-style: solid;
   border-color: lightgray;
   border-width: 1px;
@@ -105,6 +103,12 @@ form{
   box-shadow: 5px 5px 10px grey;
 }
 
+.participant_buttons button:hover{
+  margin: 10px;
+  background-color: #545558;
+  box-shadow: 5px 5px 10px grey;
+}
+
 .border-right{
   border-right: solid;
   border-color: lightgray;
@@ -129,9 +133,19 @@ form{
   background-color: #739AC1;
 }
 
+#edit:hover{
+  color: lightgrey;
+  border: 1px solid lightgrey;
+}
+
 #delete{
   background-color: #CD7272;
   width: 42px;
+}
+
+#delete:hover{
+  color: lightgrey;
+  border: 1px solid lightgrey;
 }
 
 select{
