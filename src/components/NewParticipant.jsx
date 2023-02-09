@@ -26,12 +26,13 @@ const NewParticipant = () => {
         }
 
         const participant = {name, drink_id: beverageId, meat_eater: isMeatEater };
+        console.log('Request Body:', JSON.stringify(participant)); 
 
         fetch("https://t3a2-b-back-end-production.up.railway.app/participants", {
             method: "POST",
             headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
+            Accept: "application/json",
+            "Content-Type": "application/json",
             },
             body: JSON.stringify(participant),
         })
@@ -49,12 +50,12 @@ const NewParticipant = () => {
 
 
   return (
-    <div class="card_participant">
+    <div className="card_participant">
         <h5>Add Participant</h5>
         {loading ? <Loading /> :
         <form onSubmit={handleSubmit}>
-        <label className="sr-only" htmlFor="name">Enter Name</label>
-            <div className="col-sm-10">
+        <label className="new_participant_name" htmlFor="name">Enter Name</label>
+            <div className="col-sm-12">
             <input 
                 type="text" 
                 className="form-control" 
@@ -62,16 +63,16 @@ const NewParticipant = () => {
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                />
-      </div>
+            />
+    </div>
 
         <BeverageSelector 
             beverage={beverage}
             setBeverage={setBeverage}
         />
 
-        <label className="sr-only" htmlFor="isMeatEater">Meat eater?</label>
-            <div className="col-sm-10">
+        <label htmlFor="isMeatEater">Meat eater?</label>
+    <div className="col-sm-12 meat_eater">
             <input 
                 className="form-check-input" 
                 type="radio" 
@@ -80,7 +81,7 @@ const NewParticipant = () => {
                 value="Yes"
                 checked={isMeatEater === "Yes"}
                 onChange={(e) => setIsMeatEater(e.target.value)}
-                />
+            />
         <label className="form-check-label" htmlFor="Yes">Yes</label>
 
             <input 
@@ -94,9 +95,11 @@ const NewParticipant = () => {
             />
         <label className="form-check-label" htmlFor="No">No</label>
 
-            </div>
+    </div>
+    <div className="form_button">
         <button type="submit" className="btn btn-secondary mt-2" onClick={handleSubmit}>Submit</button>
-        </form>
+    </div>
+    </form>
 }
     </div>
   )
