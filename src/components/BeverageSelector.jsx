@@ -13,7 +13,7 @@ const BeverageSelector = ( { beverage, setBeverage } ) => {
     <div>
         <label> Beverage </label><br />
 
-        <select onChange={(evt) => setBeverage(evt.target.value)} value={beverage}>
+        <select className="dropdown-toggle col-sm-12" onChange={(evt) => setBeverage(evt.target.value)} value={beverage}>
 
             {beverages.map(bev => (
                 <option key={bev.beverage} value={bev.beverage}>
