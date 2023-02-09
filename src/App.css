@@ -51,12 +51,52 @@
   box-shadow: 5px 5px 10px black;
 }
 
+.grocery{
+  width: 350px;
+  height: 182px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  border-radius: 10px;
+  margin: 5px 0;
+  padding-top: 7px;
+  /* box-shadow: 5px 5px 10px black; */
+}
+
+.beverages{
+  width: 350px;
+  height: 107px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  border-radius: 10px;
+  margin: 5px 0;
+  padding-top: 7px;
+}
+
+#shopping_h5{
+  width: 350px;
+  height: 40px;
+  border-style: solid;
+  border-color: lightgray;
+  border-width: 1px;
+  border-radius: 10px;
+  margin: 20px 0 0 0;
+  padding-top: 7px;
+}
+
 .card_participant{
+  width: 350px;
   margin-bottom: 500px;
-  padding: 2em;
+  padding: 3em;
   box-shadow: 5px 5px 10px black;
   border-radius: 10px;
   background-color: white;
+}
+
+form{
+  text-align: left;
+  margin-top: 40px;
 }
 
 .participant_buttons button{
@@ -67,6 +107,12 @@
 
 .border-right{
   border-right: solid;
+  border-color: lightgray;
+  border-width: 1px;
+}
+
+.border-bottom{
+  border-bottom: solid;
   border-color: lightgray;
   border-width: 1px;
 }
@@ -86,4 +132,32 @@
 #delete{
   background-color: #CD7272;
   width: 42px;
+}
+
+select{
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #545B62;
+  margin-bottom: 120px;
+}
+
+select option{
+  background-color: white;
+  color:black;
+}
+
+.beverage_component{
+  text-align: left;
+  margin-top: 30px;
+}
+
+.meat_eater{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form_button{
+  text-align: center;
 }
