@@ -38,17 +38,6 @@ const ParticipantsList = () => {
         }
     };
 
-    const handleEdit = async (participant) => {
-        try{
-            const response = await fetch(`https://t3a2-b-back-end-production.up.railway.app/participants/${participant._id}`, {
-                method: 'DELETE'
-            });
-            window.location.reload();
-        } catch (error) {
-            console.error(error);
-        }
-    };
-
   return (
     <div className="card">
         {loading ? (
@@ -74,7 +63,7 @@ const ParticipantsList = () => {
 
             <div className="col-3 list_buttons">
             <Link to="/participant/edit">
-            <button id="edit" className="edit btn btn-secondary" onClick={() => handleEdit(participant)}>
+            <button id="edit" className="edit btn btn-secondary" onClick={() => handleDelete(participant)}>
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
             </Link>
