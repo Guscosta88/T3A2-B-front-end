@@ -61,11 +61,9 @@ const EditParticipant = () => {
         });
     };
 
-
-
   return (
     <div className="card_participant">
-        <h5>Add Participant</h5>
+        <h5>Edit Participant</h5>
         {loading ? <Loading /> :
         <form onSubmit={handleSubmit}>
         <label className="new_participant_name" htmlFor="name">Enter Name</label>
