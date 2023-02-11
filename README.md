@@ -90,22 +90,11 @@
     [Dataflow Diagram](https://www.lucidchart.com/pages/data-flow-diagram/how-to-make-a-dfd)
 
 ## **R3 - Application Architecture Diagram:**
+![Application Architecture Diagram](images/AAD.png)
 
-- Answer
-
-
-    ![sample image](./images/sample.png)
-
-    [sample reference](referenceURL)
 
 ## **R4 - User Stories:**
-
-- Answer
-
-
-    ![sample image](./images/sample.png)
-
-    [sample reference](referenceURL)
+![User Stories Diagram](images/User_Story_Map.png)
 
 ## **R5 - Wireframes for multiple standard screen sizes, created using industry standard software:**
 
