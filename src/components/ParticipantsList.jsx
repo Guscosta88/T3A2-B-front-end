@@ -72,7 +72,6 @@ const ParticipantsList = () => {
             </button>
             
             </div>
-            
         </div>
         
         </div>
