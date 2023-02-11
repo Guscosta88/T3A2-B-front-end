@@ -10,11 +10,11 @@ const BeverageSelector = ( { beverage, setBeverage } ) => {
     }, [])
 
   return (
-    <div>
+    <div className="beverage_component">
         <label> Beverage </label><br />
 
         <select className="dropdown-toggle col-sm-12" onChange={(evt) => setBeverage(evt.target.value)} value={beverage}>
-
+        <option value="" disabled selected>Select a beverage</option>
             {beverages.map(bev => (
                 <option key={bev.beverage} value={bev.beverage}>
                     {bev.name}

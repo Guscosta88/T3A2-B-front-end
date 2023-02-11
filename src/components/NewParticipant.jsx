@@ -5,13 +5,27 @@ import { useNavigate } from 'react-router-dom'
 
 const NewParticipant = () => {
     const [name, setName ] = useState("")
-    const [beverage, setBeverage ] = useState("Beer")
+    const [beverage, setBeverage ] = useState("")
     const [isMeatEater, setIsMeatEater ] = useState("")
     const [loading, setLoading ] = useState("")
     const navigate = useNavigate()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        if(!name || name.length > 9) {
+            alert("Name must be filled and should not exceed 9 characters.");
+            return;
+        }
+        if(!beverage){
+            alert("Please select a beverage option.");
+            return;
+        }
+        if(!isMeatEater){
+            alert("please select if participant eats meat or not.");
+            return;
+        }
+
         setLoading(true)
         let beverageId;
 

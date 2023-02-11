@@ -2,8 +2,17 @@
 
 # **URL:**
 
-#### **BBQ Planner web link:**
+#### **BBQ Planner web link hosted on Railway:**
 [https://t3a2-b-front-end-production.up.railway.app/](https://t3a2-b-front-end-production.up.railway.app/)
+
+#### **BBQ Planner Front-end Github link to source code:**
+[https://github.com/dobbbo/T3A2-B-front-end](https://github.com/dobbbo/T3A2-B-front-end)
+
+#### **BBQ Planner API web link hosted on Railway:**
+[https://t3a2-b-back-end-production.up.railway.app](https://t3a2-b-back-end-production.up.railway.app)
+
+#### **BBQ Planner Back-end Github link to source code:**
+[https://github.com/Guscosta88/T3A2-B-back-end](https://github.com/Guscosta88/T3A2-B-back-end)
 
 
 # **Table of contents:**
@@ -20,6 +29,11 @@
     - [**R5 - Wireframes for multiple standard screen sizes, created using industry standard software:**](#r5---wireframes-for-multiple-standard-screen-sizes-created-using-industry-standard-software)
 
     - [**R6 - Screenshots of your Trello board throughout the duration of the project:**](#r6---screenshots-of-your-trello-board-throughout-the-duration-of-the-project)
+
+    - [**Back-end Development**](#back-end-development)
+
+    - [**Back-end Testing**](#back-end-testing)
+
 
 
 ## **R1 - Description of your website, including:**
@@ -127,17 +141,322 @@
 
 ## **R6 - Screenshots of your Trello board throughout the duration of the project:**
 
-- Answer
+# **T3A2 - Part A - Documentation**
+
+## **Day One:**
+
+![Trello Day one](./images/001_Trello.jpg)
+
+## **Day Two:**
+
+![Trello Day two](./images/002_Trello.jpg)
+
+## **Day Three:**
+
+![Trello Day three](./images/003_Trello.jpg)
+
+## **Day Four:**
+
+![Trello Day Four](./images/004_Trello.jpg)
+
+## **Day Five:**
+
+![Trello Day Five](./images/005_Trello.jpg)
+
+## **Trello Board Part A - Weblink:**
+
+[https://trello.com/invite/b/rLoXMfdJ/ATTIb8a72452a5bbaf5ffa1fb7cbc50caf1eEDBA7478/t3a2-a](https://trello.com/invite/b/rLoXMfdJ/ATTIb8a72452a5bbaf5ffa1fb7cbc50caf1eEDBA7478/t3a2-a)
+
+# **T3A2 - Part B - Back-end - Development**
+
+## **Day Six:**
+
+![Trello Day Six](./images/006_trello.jpg)
+
+## **Day Seven:**
+
+![Trello Day Seven](./images/007_trello.jpg)
+
+## **Day Eight:**
+
+![Trello Day Eight](./images/008_trello.jpg)
+
+## **Day Nine:**
+
+![Trello Day Nine](./images/009_trello.jpg)
 
 
+# **T3A2 - Part B - Front-end - Development**
 
-    ![Trello Day one](./images/001_Trello.jpg)
+## **Day Ten:**
 
-    ![Trello Day two](./images/002_Trello.jpg)
+![Trello Day Ten](./images/010_trello.jpg)
 
-    ![Trello Day three](./images/003_Trello.jpg)
+## **Day Eleven:**
 
-    ![Trello Day three](./images/004_Trello.jpg)
+![Trello Day Eleven](./images/011_trello.jpg)
 
-    [Trello Board Link](https://trello.com/b/rLoXMfdJ/t3a2-a)
+## **Day Twelve:**
+
+![Trello Day Twelve](./images/012_trello.jpg)
+
+## **Day Thirteen:**
+
+![Trello Day Thirteen](./images/013_trello.jpg)
+
+## **Day Fourteen:**
+
+![Trello Day Fourteen](./images/014_trello.jpg)
+
+## **Day Fifteen:**
+
+![Trello Day Fifteen](./images/015_trello.jpg)
+
+## **Day Sixteen:**
+
+![Trello Day Sixteen](./images/016_trello.jpg)
+
+## **Trello Board Part B - Weblink:**
+
+[https://trello.com/invite/b/E0N8yZZr/ATTI948050743fe0ec07f4ee78fcb6561efa6DED474C/t3a2-b](https://trello.com/invite/b/E0N8yZZr/ATTI948050743fe0ec07f4ee78fcb6561efa6DED474C/t3a2-b)
+
+
+# **Back-end Development**
+
+# **End Points:**
+
+#### **BBQ Planner API web link:**
+[https://t3a2-b-back-end-production.up.railway.app](https://t3a2-b-back-end-production.up.railway.app)
+
+#### **Get All participants:**
+[https://t3a2-b-back-end-production.up.railway.app/participants](https://t3a2-b-back-end-production.up.railway.app/participants)
+
+```JSON
+[
+    {
+        "_id": "63d06ab35489f93f1ae35627",
+        "name": "Johnny",
+        "drink_id": "63d06ab35489f93f1ae35623",
+        "meat_eater": "No",
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae35628",
+        "name": "Karen",
+        "drink_id": "63d06ab35489f93f1ae35623",
+        "meat_eater": "Yes",
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae35629",
+        "name": "Angela",
+        "drink_id": "63d06ab35489f93f1ae35624",
+        "meat_eater": "No",
+        "__v": 0
+    }
+]
+
+```
+
+#### **Get, Put, Delete participant by id:**
+[https://t3a2-b-back-end-production.up.railway.app/participants/id](https://t3a2-b-back-end-production.up.railway.app/participants/id)
+
+```JSON
+[
+    {
+        "_id": "63d06ab35489f93f1ae35627",
+        "name": "Johnny",
+        "drink_id": "63d06ab35489f93f1ae35623",
+        "meat_eater": "No",
+        "__v": 0
+    }
+]
+
+```
+
+#### **Get All beverages Seeded and Neverchanging:**
+[https://t3a2-b-back-end-production.up.railway.app/beverages](https://t3a2-b-back-end-production.up.railway.app/beverages)
+
+```JSON
+
+[
+    {
+        "_id": "63d06ab35489f93f1ae35622",
+        "name": "Beer",
+        "quantity": 2,
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae35623",
+        "name": "Wine",
+        "quantity": 1,
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae35624",
+        "name": "Juice",
+        "quantity": 1,
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae35625",
+        "name": "Softdrink",
+        "quantity": 2,
+        "__v": 0
+    }
+]
+
+```
+
+#### **Get All foods Seeded and Neverchanging:**
+[https://t3a2-b-back-end-production.up.railway.app/foods](https://t3a2-b-back-end-production.up.railway.app/foods)
+
+```JSON
+
+[
+    {
+        "_id": "63d06ab35489f93f1ae3562c",
+        "name": "Beef",
+        "quantity": 0.3,
+        "cont_meat": "Yes",
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae3562d",
+        "name": "Sausage",
+        "quantity": 0.3,
+        "cont_meat": "Yes",
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae3562e",
+        "name": "Potato Salad",
+        "quantity": 0.3,
+        "cont_meat": "No",
+        "__v": 0
+    },
+    {
+        "_id": "63d06ab35489f93f1ae3562f",
+        "name": "Veg Sausage",
+        "quantity": 0.3,
+        "cont_meat": "No",
+        "__v": 0
+    }
+]
+
+```
+
+# **Back-end Testing**
+
+#### **End to End Automated testing:**
+
+ - The type of testing we have decided to perform is the Automated End to End testing and the technology chosen to perform the test is the jest and supertest dependencies. The testing code covers an array of scenarios such as Getting Home Page, Creating a new participant, getting a participant's list and checking the quantity of elements and its data structure. Getting a beverage's list and checking the quantity of elements and its data structure. Getting a food's list and checking the quantity of elements and its data structure.
+    An "app.test.js" file was created containing the following code that was run using the command "npm test":
+
+```javascript
+
+import app from './app.js'
+import request from 'supertest'
+
+describe("App tests", () => {
+    test('Get Home Page', async () => {
+    const res = await request(app).get('/')
+    expect(res.status).toBe(200)
+    expect(res.body.info).toBeDefined()
+    expect(res.body.info).toBe('Barbecue Planner API')
+})
+
+describe('Get Participants list', () => {
+    let res
+
+    beforeEach(async () => {
+        res = await request(app).get('/participants')
+        expect(res.status).toBe(200)
+    })
+    it('Return an array with 6 elements', () => {
+        expect(res.body).toBeInstanceOf(Array)
+        expect(res.body.length).toBe(6)
+    })
+    it('it has the correct data-structure', () => {
+        res.body.forEach(it => {
+            expect(it._id).toBeDefined()
+            expect(it.name).toBeDefined()
+            expect(it.drink_id).toBeDefined()
+            expect(it.meat_eater).toBeDefined()
+            expect(it._id.length).toBe(24)
+        })
+        expect(res.body[0].name).toBe('John')
+    })
+})
+
+describe('Get Beverages list', () => {
+    let res
+
+    beforeEach(async () => {
+        res = await request(app).get('/beverages')
+        expect(res.status).toBe(200)
+    })
+    it('Return an array with 4 elements', () => {
+        expect(res.body).toBeInstanceOf(Array)
+        expect(res.body.length).toBe(4)
+    })
+    it('it has the correct data-structure', () => {
+        res.body.forEach(it => {
+            expect(it._id).toBeDefined()
+            expect(it.name).toBeDefined()
+            expect(it.quantity).toBeDefined()
+            expect(it._id.length).toBe(24)
+        })
+        expect(res.body[0].name).toBe('Beer')
+    })
+})
+
+describe('Get Foods list', () => {
+    let res
+
+    beforeEach(async () => {
+        res = await request(app).get('/foods')
+        expect(res.status).toBe(200)
+    })
+    it('Return an array with 4 elements', () => {
+        expect(res.body).toBeInstanceOf(Array)
+        expect(res.body.length).toBe(4)
+    })
+    it('it has the correct data-structure', () => {
+        res.body.forEach(it => {
+            expect(it._id).toBeDefined()
+            expect(it.name).toBeDefined()
+            expect(it.quantity).toBeDefined()
+            expect(it.cont_meat).toBeDefined()
+            expect(it._id.length).toBe(24)
+        })
+        expect(res.body[0].name).toBe('Beef')
+    })
+})
+
+test('Create new Participant', async () => {
+    const res = await request(app).post('/participants').send({
+        name: 'Daniel',
+        drink_id: '63d32fd81c20cfb6b245eeac',
+        meat_eater: 'Yes'
+    })
+    expect(res.status).toBe(201)
+    expect(res.body._id).toBeDefined()
+    expect(res.body.name).toBeDefined()
+    expect(res.body.drink_id).toBeDefined()
+    expect(res.body.meat_eater).toBeDefined()
+    expect(res.body.name).toBe('Daniel')
+    expect(res.body.drink_id._id).toBe('63d32fd81c20cfb6b245eeac')
+    expect(res.body.meat_eater).toBe('Yes')
+})
+
+})
+
+```
+
+#### **The Test Result after running "npm test"**
+
+![End to end test results](./images/testing.jpg)
+
+
     
