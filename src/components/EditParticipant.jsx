@@ -2,6 +2,7 @@ import { useState } from 'react'
 import BeverageSelector from './BeverageSelector'
 import Loading from './Loading'
 import { useNavigate } from 'react-router-dom'
+import ParticipantsList from './ParticipantsList'
 
 const EditParticipant = () => {
     const [name, setName ] = useState("")
