@@ -38,8 +38,16 @@ const ParticipantsList = () => {
         }
     };
 
-
-
+    const handleEdit = async (participant) => {
+        try{
+            const response = await fetch(`https://t3a2-b-back-end-production.up.railway.app/participants/${participant._id}`, {
+                method: 'DELETE'
+            });
+            window.location.reload();
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
   return (
     <div className="card">
@@ -65,7 +73,7 @@ const ParticipantsList = () => {
             <div className="col-3">{participant.meat_eater}</div>
 
             <div className="col-3 list_buttons">
-            <button id="edit" className="edit btn btn-secondary">
+            <button id="edit" className="edit btn btn-secondary" onClick={() => handleEdit(participant)}>
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
             <button id="delete" className="delete btn btn-secondary" onClick={() => handleDelete(participant)}>
