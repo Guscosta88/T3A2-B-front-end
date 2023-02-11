@@ -73,9 +73,11 @@ const ParticipantsList = () => {
             <div className="col-3">{participant.meat_eater}</div>
 
             <div className="col-3 list_buttons">
+            <Link to="/participant/edit">
             <button id="edit" className="edit btn btn-secondary" onClick={() => handleEdit(participant)}>
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
+            </Link>
             <button id="delete" className="delete btn btn-secondary" onClick={() => handleDelete(participant)}>
               <i className="fa-solid fa-user-xmark"></i>
             </button>
