@@ -41,18 +41,20 @@ const ShoppingList = () => {
             <>
               <h5>Shopping List</h5>
 
-              {/* Grocery Shopping List Section */}
+              {/* Grocery Shopping List */}
               <h5 id="shopping_h5">Grocery List</h5>
               <div className="grocery">
                 {foods.map(food => {
-                  let participant_food_multiply = 0;
+                  let participant_food_multiply = 0; // Food Multiplier based on # of Meat and Non-Meat Eaters
       
+                  // Filter Participants: Meat Eaters
                   if (food.cont_meat === "Yes") {
                     const participant = participants.filter(p => p.meat_eater === "Yes");
                   
-                    if (participant.length) {
+                    if (participant.length) { 
                       participant_food_multiply = round((participant.length * food.quantity), 2);
                     }
+                  // Filter Participants: Non-Meat Eaters
                   } else if (food.cont_meat === "No") {
                     const participant = participants.filter(p => p.meat_eater === "No");
                   
@@ -61,6 +63,7 @@ const ShoppingList = () => {
                     }
                   }
       
+                  // Return Grocery Shopping List Data
                   return participant_food_multiply !== 0 ? (
                     <div className="container">
                       <div className="row" key={food.id}>
@@ -73,17 +76,18 @@ const ShoppingList = () => {
                 })}
               </div>
 
-              {/* Beverage Shopping List Section */}
+              {/* Beverage Shopping List */}
               <h5 id="shopping_h5">Beverage List</h5>
               <div className="beverages">
                 {beverages.map(beverage => {
-                  let participant_beverage_multiply = 0;
+                  let participant_beverage_multiply = 0; // Beverage Multiplier
       
                   const participant = participants.filter(p => p.drink_id === beverage._id);
                   if (participant.length) {
                     participant_beverage_multiply = participant.length * beverage.quantity;
                   }
       
+                  // Return Beverage Shopping List Data
                   return participant_beverage_multiply !== 0 ? (
                     <div className="container">
                       <div className="row" key={beverage.id}>
@@ -96,13 +100,17 @@ const ShoppingList = () => {
               </div>
             </>
           )}
+
+          {/* Navigation Buttons */}
           <div class="participant_buttons">
-                        <Link to="/participants">
-                    <button>Back</button>
-                </Link>
-                </div>
+            {/* Route to Participant List */}
+            <Link to="/participants">
+              <button>Back</button>
+            </Link>
+          </div>
         </div>
       )
       };
       
+      // Export Shopping List
       export default ShoppingList;
