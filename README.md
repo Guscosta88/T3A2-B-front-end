@@ -34,6 +34,8 @@
 
     - [**Back-end Testing**](#back-end-testing)
 
+    - [**Front-end Testing**](#front-end-testing)
+
 
 
 ## **R1 - Description of your website, including:**
