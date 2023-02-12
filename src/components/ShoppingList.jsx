@@ -3,31 +3,36 @@ import Loading from './Loading'
 import { Link } from 'react-router-dom';
 import { round } from 'lodash';
 
+// Shopping List
 const ShoppingList = () => {
+  
+    // Initialise Variables
     const [participants, setParticipants] = useState([]);
     const [foods, setFoods] = useState([]);
     const [beverages, setBeverages] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true); // Loading Status
   
+    // GET Participant Data + Food & Beverage Choice
     useEffect(() => {
       async function getData() {
-        const res = await fetch("https://t3a2-b-back-end-production.up.railway.app/participants");
+        const res = await fetch("https://t3a2-b-back-end-production.up.railway.app/participants"); // FETCH Participant Data
         const participantsData = await res.json();
-        setParticipants(participantsData);
+        setParticipants(participantsData); // Return Participant Data
   
-        const res2 = await fetch("https://t3a2-b-back-end-production.up.railway.app/foods");
+        const res2 = await fetch("https://t3a2-b-back-end-production.up.railway.app/foods"); // FETCH Food Data
         const foodData = await res2.json();
-        setFoods(foodData);
+        setFoods(foodData); // Return Food Data
   
-        const res3 = await fetch("https://t3a2-b-back-end-production.up.railway.app/beverages");
+        const res3 = await fetch("https://t3a2-b-back-end-production.up.railway.app/beverages"); // FETCH Beverage Data
         const beveragesData = await res3.json();
-        setBeverages(beveragesData);
+        setBeverages(beveragesData); // Return Beverage Data
   
         setLoading(false);
       }
-      getData();
+      getData(); // Return Data
     }, []);
 
+    // Shopping List Card
     return (
         <div className="card">
           {loading ? (
@@ -35,6 +40,8 @@ const ShoppingList = () => {
           ) : (
             <>
               <h5>Shopping List</h5>
+
+              {/* Grocery Shopping List Section */}
               <h5 id="shopping_h5">Grocery List</h5>
               <div className="grocery">
                 {foods.map(food => {
@@ -65,6 +72,8 @@ const ShoppingList = () => {
                   );
                 })}
               </div>
+
+              {/* Beverage Shopping List Section */}
               <h5 id="shopping_h5">Beverage List</h5>
               <div className="beverages">
                 {beverages.map(beverage => {
