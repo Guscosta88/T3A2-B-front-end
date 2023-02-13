@@ -3,8 +3,6 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  max-width: 1440px;
-  min-width: 320px;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -15,6 +13,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  box-sizing: border-box;
 }
 
 a {
@@ -34,9 +34,11 @@ body {
   vertical-align: middle;
   display: flex;
   place-items: center;
-  min-width: 320px;
   min-height: 100vh;
   background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 h1 {

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // Participant List
 const ParticipantsList = () => {
     // Initialise Variables
-    let [participants, setParticipants] = useState([])
+    let [participants, setParticipants, setParticipant] = useState([])
     let [beverages, setBeverages] = useState([])
     const [loading, setLoading] = useState(true); // Loading Status
 
@@ -45,17 +45,19 @@ const ParticipantsList = () => {
 // Participant List Card
 return (
     <div className="card">
+        <div className="container">
+
         {loading ? (
             <Loading />
         ) : (
             <>
         <h5>Participants List</h5>
-        {participants.map(participant => ( // Displays List of Participants
-        <div className="container participant">
-            <div className="row" key={participant.id}>
-            <div className="col-3 border-right">{participant.name}</div>
+        {participants.map((participant, index) => ( // Displays List of Participants
+        
+            <div className="row participant py-3" key={index}>
+            <div className="col-12 col-sm-3 border-right">{participant.name}</div>
 
-                <div className="col-3 border-right">
+                <div className="col-12 col-sm-3 border-right">
                     {beverages.map(beverage => {
                         if (participant.drink_id === beverage._id) {
                             return beverage.name; // Return Participant's Beverage Choice
@@ -64,25 +66,26 @@ return (
                     })}
                 </div>
 
-            <div className="col-3">{participant.meat_eater}</div>
+            <div className="col-12 col-sm-3">{participant.meat_eater}</div>
             
             {/* Participant Buttons */}
-            <div className="col-3 list_buttons">
+            <div className="col-12 col-sm-3 list_buttons">
             
             {/* Edit Participant Button */}
-            <button id="edit" className="edit btn btn-secondary">
+            <Link to={`edit/${participant._id}`}>
+            <button id="edit" className="edit btn btn-secondary mx-1">
               <i className="fa-solid fa-pen-to-square"></i>
             </button>
+            </Link>
 
             {/* Delete Participant Button */}
-            <button id="delete" className="delete btn btn-secondary" onClick={() => handleDelete(participant)}>
+            <button id="delete" className="delete btn btn-secondary mx-1" onClick={() => handleDelete(participant)}>
               <i className="fa-solid fa-user-xmark"></i>
             </button>
             
             </div>
         </div>
         
-        </div>
         ))}
         
         {/* Navigation Buttons */}
@@ -90,18 +93,19 @@ return (
 
             {/* Route to "New Participant" */}
             <Link to="/">
-                <button>Add Participant</button>
+                <button className="btn btn-secondary text-white">Add Participant</button>
             </Link>
 
             {/* Route to "Shopping List" */}
             <Link to="/shopping">
-                <button>Shopping List</button>
+                <button className="btn btn-secondary text-white">Shopping List</button>
             </Link>
 
         </div>
         </>
         )}
 
+    </div>
     </div>
     
   )

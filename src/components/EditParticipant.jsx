@@ -1,18 +1,35 @@
-import { useState } from 'react'
-import BeverageSelector from './BeverageSelector'
+import { useState, useEffect } from 'react'
+import ParticipantForm from './ParticipantForm'
 import Loading from './Loading'
-import { useNavigate } from 'react-router-dom'
-import ParticipantsList from './ParticipantsList'
+import { useNavigate, useParams, Link } from 'react-router-dom'
 
 const EditParticipant = () => {
-    const [name, setName ] = useState("")
-    const [beverage, setBeverage ] = useState("")
-    const [isMeatEater, setIsMeatEater ] = useState("")
-    const [loading, setLoading ] = useState("")
+    const [loading, setLoading ] = useState(false)
+    let [name, setName ] = useState("")
+    let [beverage, setBeverage ] = useState("")
+    let [isMeatEater, setIsMeatEater ] = useState("")
+    let [hasError, setHasError ] = useState(false)
     const navigate = useNavigate()
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const { id } = useParams();
+
+    useEffect(() => {
+        async function getParticipant() {
+            const result = await fetch(`https://t3a2-b-back-end-production.up.railway.app/participants/${id}`);
+            if(result.status !== 200){
+                setHasError(true)
+            } else {
+            const data = await result.json()
+            setName(data.name)
+            setBeverage(data.drink_id ? data.drink_id._id : null)
+            setIsMeatEater(data.meat_eater)
+            }
+        }
+        getParticipant()
+    }, [])
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
         if(!name || name.length > 9) {
             alert("Name must be filled and should not exceed 9 characters.");
@@ -28,94 +45,57 @@ const EditParticipant = () => {
         }
 
         setLoading(true)
-        let beverageId;
 
-        try{
-            const response = await fetch(
-                `https://t3a2-b-back-end-production.up.railway.app/beverages?name=${beverage}`
-            );
-            const data = await response.json();
-            beverageId = data._id;
-        } catch (error) {
-            console.log("Error retrieving beverage ID:", error);
-        }
-
-        const participant = {name, drink_id: beverageId, meat_eater: isMeatEater };
-        console.log('Request Body:', JSON.stringify(participant)); 
-
-        fetch("https://t3a2-b-back-end-production.up.railway.app/participants", {
-            method: "POST",
-            headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
+        const participant = { name, drink_id: beverage, meat_eater: isMeatEater }
+        
+        fetch(`https://t3a2-b-back-end-production.up.railway.app/participants/${id}`, {
+            method: "PUT",
+            headers:{
+                Accept: "application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(participant),
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log("Success:", data);
             setLoading(false)
-            navigate("/participants");
+            navigate("participants");
         })
         .catch((error) => {
-            console.log("Error:", error);
+            console.error("Error:", error);
         });
-    };
-
+    }
+       
   return (
     <div className="card_participant">
         <h5>Edit Participant</h5>
-        {loading ? <Loading /> :
-        <form onSubmit={handleSubmit}>
-        <label className="new_participant_name" htmlFor="name">Enter Name</label>
-            <div className="col-sm-12">
-            <input 
-                type="text" 
-                className="form-control" 
-                id="name" 
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-    </div>
+        {
+            loading ? 
+                <Loading /> 
+            :
+                (
+                    !hasError?
+                        <ParticipantForm 
+                            name={name}
+                            setName={setName}
+                            beverage={beverage}
+                            setBeverage={setBeverage}
+                            isMeatEater={isMeatEater}
+                            setIsMeatEater={setIsMeatEater}
+                            handleSubmit={handleSubmit}
+                        />
+                        
+                    :
+                    <div className="text-danger">Something went wrong</div>
+                )
+            }
 
-        <BeverageSelector 
-            beverage={beverage}
-            setBeverage={setBeverage}
-        />
+                        <Link to="/participants">
+                            <button className="btn btn-secondary text-white mt-2">Back</button>
+                        </Link>
 
-        <label htmlFor="isMeatEater">Meat eater?</label>
-    <div className="col-sm-12 meat_eater">
-            <input 
-                className="form-check-input" 
-                type="radio" 
-                name="isMeatEater" 
-                id="Yes" 
-                value="Yes"
-                checked={isMeatEater === "Yes"}
-                onChange={(e) => setIsMeatEater(e.target.value)}
-            />
-        <label className="form-check-label" htmlFor="Yes">Yes</label>
-
-            <input 
-                className="form-check-input" 
-                type="radio" 
-                name="isMeatEater" 
-                id="No" 
-                value="No"
-                checked={isMeatEater === "No"}
-                onChange={(e) => setIsMeatEater(e.target.value)}
-            />
-        <label className="form-check-label" htmlFor="No">No</label>
-
-    </div>
-    <div className="form_button">
-        <button type="submit" className="btn btn-secondary mt-2" onClick={handleSubmit}>Submit</button>
-    </div>
-    </form>
-}
-    </div>
-  )
+        </div>
+      )
 }
 
 export default EditParticipant

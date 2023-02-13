@@ -1,3 +1,4 @@
+import React from 'react'
 import NewParticipant from './NewParticipant'
 import EditParticipant from './EditParticipant'
 import ParticipantsList from './ParticipantsList'
@@ -15,7 +16,7 @@ const App = () => {
           <Routes>
               <Route path='/' element={ <NewParticipant /> } />
               <Route path='/participants' element={ <ParticipantsList/> } />
-              <Route path='/participant/edit' element={ <EditParticipant /> } />
+              <Route path='/participants/edit/:id' element={ <EditParticipant /> } />
               <Route path='/shopping' element={ <ShoppingList /> } />
           </Routes>
       </BrowserRouter>

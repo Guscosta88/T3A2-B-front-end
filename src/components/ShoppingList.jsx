@@ -44,7 +44,8 @@ const ShoppingList = () => {
               {/* Grocery Shopping List */}
               <h5 id="shopping_h5">Grocery List</h5>
               <div className="grocery">
-                {foods.map(food => {
+              <div className="container">
+                {foods.map((food, index) => {
                   let participant_food_multiply = 0; // Food Multiplier based on # of Meat and Non-Meat Eaters
       
                   // Filter Participants: Meat Eaters
@@ -65,21 +66,21 @@ const ShoppingList = () => {
       
                   // Return Grocery Shopping List Data
                   return participant_food_multiply !== 0 ? (
-                    <div className="container">
-                      <div className="row" key={food.id}>
+                    
+                      <div className="row" key={index}>
                         <div className="col-8 border-right border-bottom">{food.name}</div>
                         <div className="col-2 border-bottom">{participant_food_multiply}</div>
                         <div className="col-2 border-right border-bottom">{food.unit}</div>
                       </div>
-                    </div>
                   ) : null;
                 })}
               </div>
-
+              </div>
               {/* Beverage Shopping List */}
               <h5 id="shopping_h5">Beverage List</h5>
               <div className="beverages">
-                {beverages.map(beverage => {
+              <div className="container">
+                {beverages.map((beverage, index) => {
                   let participant_beverage_multiply = 0; // Beverage Multiplier
       
                   const participant = participants.filter(p => p.drink_id === beverage._id);
@@ -89,14 +90,14 @@ const ShoppingList = () => {
       
                   // Return Beverage Shopping List Data
                   return participant_beverage_multiply !== 0 ? (
-                    <div className="container">
-                      <div className="row" key={beverage.id}>
+                    
+                      <div className="row" key={index}>
                         <div className="col-9 border-right border-bottom">{beverage.name}</div>
                         <div className="col-3 border-right border-bottom">{participant_beverage_multiply} bt</div>
                       </div>
-                    </div>
                   ) : null;
                 })}
+              </div>
               </div>
             </>
           )}

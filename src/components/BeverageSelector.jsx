@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 
 // Beverage Selector Component
 const BeverageSelector = ( { beverage, setBeverage } ) => {
+    
     let [beverages, setBeverages] = useState([])
 
     // FETCH List of Beverages
@@ -17,9 +18,9 @@ const BeverageSelector = ( { beverage, setBeverage } ) => {
 
         {/* Dropdown → Select Beverage */}
         <select className="dropdown-toggle col-sm-12" onChange={(evt) => setBeverage(evt.target.value)} value={beverage}>
-        <option value="" disabled selected>Select a beverage</option>
-            {beverages.map(bev => (
-                <option key={bev.beverage} value={bev.beverage}>
+        <option value="" disabled>Select a beverage</option>
+            {beverages.map((bev, index ) => (
+                <option key={index} value={bev._id}>
                     {bev.name}
                 </option>
             ))}
