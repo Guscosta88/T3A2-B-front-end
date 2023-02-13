@@ -59,7 +59,7 @@ const EditParticipant = () => {
         .then((res) => res.json())
         .then((data) => {
             setLoading(false)
-            navigate("participants");
+            navigate("/participants");
         })
         .catch((error) => {
             console.error("Error:", error);
