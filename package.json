@@ -7,7 +7,7 @@
     "dev": "vite",
     "localbuild": "vite build --mode=production",
     "preview": "vite preview",
-    "start": "vite preview --host"
+    "start": "vite preview --omit=dev"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
